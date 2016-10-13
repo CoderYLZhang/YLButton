@@ -33,8 +33,6 @@
     _imageAlignment = YLImageAlignmentLeft;
     _yl_imageInsets = UIEdgeInsetsZero;
     _yl_titleInsets = UIEdgeInsetsZero;
-    self.backgroundColor = [UIColor redColor];
-    self.titleLabel.backgroundColor = [UIColor grayColor];
 }
 
 #pragma mark - 布局

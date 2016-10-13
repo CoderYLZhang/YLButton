@@ -36,6 +36,8 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonOne" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.titleLabel.backgroundColor = [UIColor grayColor];
     [self.view addSubview:button];
 }
 
@@ -49,6 +51,8 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonTwo" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.titleLabel.backgroundColor = [UIColor grayColor];
     [self.view addSubview:button];
 }
 
@@ -62,6 +66,8 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonThree" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.titleLabel.backgroundColor = [UIColor grayColor];
     [self.view addSubview:button];
 }
 
@@ -86,6 +92,8 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonFive" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.titleLabel.backgroundColor = [UIColor grayColor];
     [self.view addSubview:button];
 }
 
