@@ -43,17 +43,12 @@
     switch (_imageAlignment) {
         default:
         case YLImageAlignmentLeft:
-
             break;
         case YLImageAlignmentRight:
-        {
             [self imageAlignmentLayoutRight];
-        }
             break;
         case YLImageAlignmentTop:
-        {
             [self imageAlignmentLayoutTop];
-        }
             break;
         case YLImageAlignmentBottom:
             [self imageAlignmentLayoutBottom];
