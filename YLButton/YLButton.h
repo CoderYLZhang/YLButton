@@ -24,4 +24,7 @@ typedef NS_ENUM(NSUInteger, YLImageAlignment) {
 
 @property(nonatomic,assign) UIEdgeInsets yl_titleInsets;
 
+/** 按钮点击的间隔时间  默认 0 */
+@property (nonatomic, assign) NSTimeInterval clickDurationTime;
+
 @end

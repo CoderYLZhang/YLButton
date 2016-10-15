@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D36FC6D51DB22F560059FA14 /* YLAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FC6D41DB22F560059FA14 /* YLAlertTool.m */; };
 		D3720BAB1DAF6EFD007E65E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3720BAA1DAF6EFD007E65E5 /* main.m */; };
 		D3720BAE1DAF6EFD007E65E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3720BAD1DAF6EFD007E65E5 /* AppDelegate.m */; };
 		D3720BB11DAF6EFD007E65E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3720BB01DAF6EFD007E65E5 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D36FC6D31DB22F560059FA14 /* YLAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLAlertTool.h; sourceTree = "<group>"; };
+		D36FC6D41DB22F560059FA14 /* YLAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLAlertTool.m; sourceTree = "<group>"; };
 		D3720BA61DAF6EFD007E65E5 /* YLButtonDome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLButtonDome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3720BAA1DAF6EFD007E65E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3720BAC1DAF6EFD007E65E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 				D3720BAC1DAF6EFD007E65E5 /* AppDelegate.h */,
 				D3720BAF1DAF6EFD007E65E5 /* ViewController.h */,
 				D3720BB01DAF6EFD007E65E5 /* ViewController.m */,
+				D36FC6D31DB22F560059FA14 /* YLAlertTool.h */,
+				D36FC6D41DB22F560059FA14 /* YLAlertTool.m */,
 				D3720BB21DAF6EFD007E65E5 /* Main.storyboard */,
 				D3720BB51DAF6EFD007E65E5 /* Assets.xcassets */,
 				D3720BB71DAF6EFD007E65E5 /* LaunchScreen.storyboard */,
@@ -166,6 +171,7 @@
 			files = (
 				D3720BB11DAF6EFD007E65E5 /* ViewController.m in Sources */,
 				D3720BAE1DAF6EFD007E65E5 /* AppDelegate.m in Sources */,
+				D36FC6D51DB22F560059FA14 /* YLAlertTool.m in Sources */,
 				D3720BC31DAF6F2D007E65E5 /* YLButton.m in Sources */,
 				D3720BAB1DAF6EFD007E65E5 /* main.m in Sources */,
 			);

@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "YLButton.h"
+#import "YLAlertTool.h"
 
 
 @interface ViewController ()
 
 /**  */
 @property (nonatomic, strong) UIImage *myImg;
+
 @end
 
 @implementation ViewController
@@ -28,6 +30,10 @@
     [self buttonFore];
     [self buttonFive];
 }
+- (void)buttonDidClick:(YLButton*)button {
+
+    [YLAlertTool showAlertWithTitle:[NSString stringWithFormat:@"此button %@ 秒响应一次事件",@(button.clickDurationTime)]];
+}
 
 - (void)buttonOne{
 
@@ -38,21 +44,22 @@
     [button setImage:_myImg forState:UIControlStateNormal];
     button.backgroundColor = [UIColor redColor];
     button.titleLabel.backgroundColor = [UIColor grayColor];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
 - (void)buttonTwo{
 
     YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.yl_imageInsets = UIEdgeInsetsMake(0, 10, 10, 0);
-    button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 10);
     button.imageAlignment = YLImageAlignmentRight;
+    button.clickDurationTime = 3;
     button.frame = CGRectMake(200, 100, 100, 30);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonTwo" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
     button.backgroundColor = [UIColor redColor];
     button.titleLabel.backgroundColor = [UIColor grayColor];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
@@ -68,6 +75,7 @@
     [button setImage:_myImg forState:UIControlStateNormal];
     button.backgroundColor = [UIColor redColor];
     button.titleLabel.backgroundColor = [UIColor grayColor];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
@@ -94,6 +102,7 @@
     [button setImage:_myImg forState:UIControlStateNormal];
     button.backgroundColor = [UIColor redColor];
     button.titleLabel.backgroundColor = [UIColor grayColor];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
