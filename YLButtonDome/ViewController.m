@@ -28,17 +28,18 @@
     [self buttonTwo];
     [self buttonThree];
     [self buttonFore];
-    [self buttonFive];
+    [self buttonUIButton];
 }
 - (void)buttonDidClick:(YLButton*)button {
 
-    [YLAlertTool showAlertWithTitle:[NSString stringWithFormat:@"此button %@ 秒响应一次事件",@(button.clickDurationTime)]];
+    //[YLAlertTool showAlertWithTitle:[NSString stringWithFormat:@"此button %@ 秒响应一次事件",@(button.clickDurationTime)]];
 }
 
 - (void)buttonOne{
 
     YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(50, 100, 100, 30);
+    button.titleEdgeInsets = UIEdgeInsetsMake(10, 0, 0, 0);
+    button.frame = CGRectMake(50, 100, 150, 50);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonOne" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
@@ -52,8 +53,9 @@
 
     YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
     button.imageAlignment = YLImageAlignmentRight;
-    button.clickDurationTime = 3;
-    button.frame = CGRectMake(200, 100, 100, 30);
+    //button.clickDurationTime = 3;
+    button.frame = CGRectMake(50, 200, 150, 50);
+    //button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 0);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonTwo" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
@@ -67,9 +69,8 @@
 
     YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
     button.imageAlignment = YLImageAlignmentTop;
-    button.frame = CGRectMake(50, 200, 100, 30);
-    button.yl_imageInsets = UIEdgeInsetsMake(0, 10, 10, 0);
-    button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 10);
+    button.frame = CGRectMake(50, 300, 150, 50);
+    //button.yl_imageInsets = UIEdgeInsetsMake(10, 0, 0, 0);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"buttonThree" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
@@ -79,30 +80,30 @@
     [self.view addSubview:button];
 }
 
-- (void)buttonFore{
+- (void)buttonFore {
+    
+    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
+    button.imageAlignment = YLImageAlignmentBottom;
+    button.frame = CGRectMake(50, 400, 150, 50);
+    button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 0);
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitle:@"buttonFore" forState:UIControlStateNormal];
+    [button setImage:_myImg forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.titleLabel.backgroundColor = [UIColor grayColor];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)buttonUIButton{
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(150, 50, 100, 30);
+    button.frame = CGRectMake(50, 500, 150, 50);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"UIButton" forState:UIControlStateNormal];
     [button setImage:_myImg forState:UIControlStateNormal];
     button.backgroundColor = [UIColor redColor];
     button.titleLabel.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:button];
-}
-
-- (void)buttonFive {
-    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.yl_imageInsets = UIEdgeInsetsMake(10, 0, 0, 10);
-    button.yl_titleInsets = UIEdgeInsetsMake(0, 10, 10, 0);
-    button.imageAlignment = YLImageAlignmentBottom;
-    button.frame = CGRectMake(200, 200, 100, 30);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"buttonFive" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 

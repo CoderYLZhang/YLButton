@@ -65,7 +65,8 @@
     CGRect imageFrame = self.imageView.frame;
     CGRect titleFrame = self.titleLabel.frame;
 
-    CGFloat imageX = self.frame.size.width - imageFrame.size.width;
+    NSInteger space = 0.5 * (self.frame.size.width - imageFrame.size.width - titleFrame.size.width);
+    CGFloat imageX = self.frame.size.width - imageFrame.size.width - space;
     CGFloat imageY = imageFrame.origin.y;
     CGFloat imageW = imageFrame.size.width;
     CGFloat imageH = imageFrame.size.height;
@@ -89,27 +90,31 @@
 - (void)imageAlignmentLayoutTop {
 
     CGRect imageFrame = self.imageView.frame;
-    imageFrame.origin.y = 0;
-    self.imageView.frame = imageFrame;
+    CGRect titleFrame = self.titleLabel.frame;
+
+    NSInteger imageY = 0.5 * (self.frame.size.height - imageFrame.size.height - titleFrame.size.height);
+    imageFrame.origin.y = imageY;
 
     CGPoint imageCenter = self.imageView.center;
     imageCenter.x = self.frame.size.width * 0.5;
     self.imageView.center = imageCenter;
 
-    CGFloat titleY = self.imageView.bounds.size.height;
-    CGFloat titleW = self.bounds.size.width;
-    CGFloat titleH = self.bounds.size.height - titleY;
-    self.titleLabel.frame = CGRectMake(0, titleY, titleW, titleH);
+    CGPoint titleCenter = self.titleLabel.center;
+    titleCenter.x = self.frame.size.width * 0.5;
+    self.titleLabel.center = titleCenter;
+
+    CGFloat titleY = CGRectGetMaxY(imageFrame);
 
     imageFrame = self.imageView.frame;
     CGFloat imageX = imageFrame.origin.x;
-    CGFloat imageY = imageFrame.origin.y;
     imageX = imageX - _yl_imageInsets.right + _yl_imageInsets.left;
     imageY = imageY + _yl_imageInsets.top - _yl_imageInsets.bottom;
     self.imageView.frame = CGRectMake(imageX, imageY, imageFrame.size.width, imageFrame.size.height);
 
-    CGRect titleFrame = self.titleLabel.frame;
+    titleFrame = self.titleLabel.frame;
     CGFloat titleX = titleFrame.origin.x;
+    CGFloat titleW = titleFrame.size.width;
+    CGFloat titleH = titleFrame.size.height;
     titleX = titleX - _yl_titleInsets.right + _yl_titleInsets.left;
     titleY = titleY + _yl_titleInsets.top - _yl_titleInsets.bottom;
     self.titleLabel.frame = CGRectMake(titleX, titleY, titleW, titleH);
@@ -120,13 +125,15 @@
 
 - (void)imageAlignmentLayoutBottom {
 
-    CGFloat titleX = 0;
-    CGFloat titleY = 0;
-    CGFloat titleW = self.bounds.size.width;
-    CGFloat titleH = self.bounds.size.height - self.imageView.bounds.size.height;
-
     CGRect imageFrame = self.imageView.frame;
-    imageFrame.origin.y =  self.bounds.size.height - self.titleLabel.bounds.size.height;
+    CGRect titleFrame = self.titleLabel.frame;
+
+    CGFloat titleX = 0.5 * (self.frame.size.width - titleFrame.size.width);
+    CGFloat titleY = 0.5 * (self.frame.size.height - imageFrame.size.height - titleFrame.size.height);
+    CGFloat titleW = titleFrame.size.width;
+    CGFloat titleH = titleFrame.size.height;
+
+    imageFrame.origin.y =  titleY + titleH;
     self.imageView.frame = imageFrame;
 
     CGPoint imageCenter = self.imageView.center;
