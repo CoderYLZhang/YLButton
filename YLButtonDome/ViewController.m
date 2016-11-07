@@ -9,102 +9,75 @@
 #import "ViewController.h"
 #import "YLButton.h"
 #import "YLAlertTool.h"
+#import "YLButtonViewController.h"
 
-
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /**  */
-@property (nonatomic, strong) UIImage *myImg;
 
+
+/**  */
+@property (nonatomic, strong) NSArray *itemArray;
+
+/**  */
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.myImg = [UIImage imageNamed:@"bg"];
-
-    [self buttonOne];
-    [self buttonTwo];
-    [self buttonThree];
-    [self buttonFore];
-    [self buttonUIButton];
-}
-- (void)buttonDidClick:(YLButton*)button {
-
-    //[YLAlertTool showAlertWithTitle:[NSString stringWithFormat:@"此button %@ 秒响应一次事件",@(button.clickDurationTime)]];
-}
-
-- (void)buttonOne{
-
-    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.titleEdgeInsets = UIEdgeInsetsMake(10, 0, 0, 0);
-    button.frame = CGRectMake(50, 100, 150, 50);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"buttonOne" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-}
-
-- (void)buttonTwo{
-
-    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.imageAlignment = YLImageAlignmentRight;
-    //button.clickDurationTime = 3;
-    button.frame = CGRectMake(50, 200, 150, 50);
-    //button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 0);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"buttonTwo" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-}
-
-- (void)buttonThree{
-
-    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.imageAlignment = YLImageAlignmentTop;
-    button.frame = CGRectMake(50, 300, 150, 50);
-    //button.yl_imageInsets = UIEdgeInsetsMake(10, 0, 0, 0);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"buttonThree" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-}
-
-- (void)buttonFore {
     
-    YLButton *button = [YLButton buttonWithType:UIButtonTypeCustom];
-    button.imageAlignment = YLImageAlignmentBottom;
-    button.frame = CGRectMake(50, 400, 150, 50);
-    button.yl_titleInsets = UIEdgeInsetsMake(10, 0, 0, 0);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"buttonFore" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+
+    self.itemArray = @[
+                       @"YLImageAlignmentLeft",
+                       @"YLImageAlignmentRight",
+                       @"YLImageAlignmentTop",
+                       @"YLImageAlignmentBottom"
+                       ];
+
+    [self.view addSubview:self.tableView];
 }
 
-- (void)buttonUIButton{
-
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(50, 500, 150, 50);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitle:@"UIButton" forState:UIControlStateNormal];
-    [button setImage:_myImg forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:button];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.itemArray.count;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YLButton"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YLButton"];
+    }
+
+    cell.textLabel.text = self.itemArray[indexPath.row];
+
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    YLButtonViewController *VC = [[YLButtonViewController alloc]init];
+    VC.imageAlignment = (YLImageAlignment)indexPath.row;
+    [self.navigationController pushViewController:VC animated:YES];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        CGRect tableFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 60);
+        UITableView *table = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStyleGrouped];
+        table.delegate = self;
+        table.dataSource = self;
+        _tableView = table;
+    }
+    return _tableView;
+}
+
+
+
+
 
 @end

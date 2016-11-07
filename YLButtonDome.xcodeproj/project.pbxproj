@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D32561121DD0B2A4007F6566 /* YLButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32561101DD0B2A4007F6566 /* YLButtonViewController.m */; };
+		D32561131DD0B2A4007F6566 /* YLButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32561111DD0B2A4007F6566 /* YLButtonViewController.xib */; };
 		D36FC6D51DB22F560059FA14 /* YLAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FC6D41DB22F560059FA14 /* YLAlertTool.m */; };
 		D3720BAB1DAF6EFD007E65E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3720BAA1DAF6EFD007E65E5 /* main.m */; };
 		D3720BAE1DAF6EFD007E65E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3720BAD1DAF6EFD007E65E5 /* AppDelegate.m */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D325610F1DD0B2A4007F6566 /* YLButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLButtonViewController.h; sourceTree = "<group>"; };
+		D32561101DD0B2A4007F6566 /* YLButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLButtonViewController.m; sourceTree = "<group>"; };
+		D32561111DD0B2A4007F6566 /* YLButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YLButtonViewController.xib; sourceTree = "<group>"; };
 		D36FC6D31DB22F560059FA14 /* YLAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLAlertTool.h; sourceTree = "<group>"; };
 		D36FC6D41DB22F560059FA14 /* YLAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLAlertTool.m; sourceTree = "<group>"; };
 		D3720BA61DAF6EFD007E65E5 /* YLButtonDome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLButtonDome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +74,9 @@
 				D3720BAC1DAF6EFD007E65E5 /* AppDelegate.h */,
 				D3720BAF1DAF6EFD007E65E5 /* ViewController.h */,
 				D3720BB01DAF6EFD007E65E5 /* ViewController.m */,
+				D325610F1DD0B2A4007F6566 /* YLButtonViewController.h */,
+				D32561101DD0B2A4007F6566 /* YLButtonViewController.m */,
+				D32561111DD0B2A4007F6566 /* YLButtonViewController.xib */,
 				D36FC6D31DB22F560059FA14 /* YLAlertTool.h */,
 				D36FC6D41DB22F560059FA14 /* YLAlertTool.m */,
 				D3720BB21DAF6EFD007E65E5 /* Main.storyboard */,
@@ -158,6 +166,7 @@
 			files = (
 				D3720BB91DAF6EFD007E65E5 /* LaunchScreen.storyboard in Resources */,
 				D3720BB61DAF6EFD007E65E5 /* Assets.xcassets in Resources */,
+				D32561131DD0B2A4007F6566 /* YLButtonViewController.xib in Resources */,
 				D3720BB41DAF6EFD007E65E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32561121DD0B2A4007F6566 /* YLButtonViewController.m in Sources */,
 				D3720BB11DAF6EFD007E65E5 /* ViewController.m in Sources */,
 				D3720BAE1DAF6EFD007E65E5 /* AppDelegate.m in Sources */,
 				D36FC6D51DB22F560059FA14 /* YLAlertTool.m in Sources */,
